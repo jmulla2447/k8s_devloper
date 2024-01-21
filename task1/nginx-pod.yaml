@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  containers:
+  - image: nginx:1.17.10
+    name: nginx
+    env:
+    - name: DB_URL
+      value : postgressql://mydb:5432
+    - name : DB_USERNAME
+      value : admin
+    ports:
+    - containerPort: 80
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always

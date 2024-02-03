@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: consumer
+  name: consumer
+spec:
+  volumes:
+    - name: nginx-secret
+      secret:
+        secretName: ext-service-secret
+  containers:
+  - image: nginx
+    name: consumer
+    resources: {}
+    volumeMounts:
+      - name: nginx-secret
+        readOnly: true
+        mountPath: /var/app
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

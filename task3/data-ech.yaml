@@ -19,7 +19,7 @@ spec:
         mountPath: /var/app/data/
   - image: busybox
     name: sidecar
-    command: ['sh', '-c','while true; do ls -d /var/app/data/*.data.txt | wc -l; sleep 30; done;']
+    command: ['sh', '-c','while true; do ls -d /var/app/data/*-data.txt | wc -l; sleep 30; done;']
     volumeMounts:
       - name: vol
         mountPath: /var/app/data/

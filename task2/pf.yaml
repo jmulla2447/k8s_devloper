@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: "2024-02-03T21:33:55Z"
+  labels:
+    kubernetes.io/metadata.name: project-firebird
+  name: project-firebird
+  resourceVersion: "160695"
+  uid: c3d0d756-e248-48a0-a69a-8f136d233b5c
+spec:
+  finalizers:
+  - kubernetes
+status:
+  phase: Active

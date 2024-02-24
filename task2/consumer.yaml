@@ -12,6 +12,17 @@ spec:
         secretName: ext-service-secret
   containers:
   - image: nginx
+    env:
+      - name: API_ENDPOINT
+        valueFrom:
+          configMapKeyRef:
+            name: service-configmap
+            key: api_endpoint
+      - name: USERNAME
+        valueFrom:
+          configMapKeyRef:
+            name: service-configmap
+            key: username
     name: consumer
     resources: {}
     volumeMounts:

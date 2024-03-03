@@ -6,6 +6,8 @@ metadata:
     run: pod-3
     tier: backend
     team: artemidis
+  annotations:
+    deployer: jm
   name: pod-3
 spec:
   containers:

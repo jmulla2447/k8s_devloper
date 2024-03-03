@@ -6,6 +6,8 @@ metadata:
     run: pod-1
     tier: frontend
     team: artemidis
+  annotations:
+    deployer: jm
   name: pod-1
 spec:
   containers:

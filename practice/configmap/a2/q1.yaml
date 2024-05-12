@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: q1
+  name: q1
+spec:
+  containers:
+  - image: nginx
+    name: q1
+    resources: {}
+    env:
+    - name: EMAIL_SERVER
+      valueFrom:
+        configMapKeyRef:
+          name: econfig
+          key: EMAIL_SERVER
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+

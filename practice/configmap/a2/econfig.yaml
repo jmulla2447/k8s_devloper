@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  EMAIL_SERVER: smtp.changeserver.com
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: econfig

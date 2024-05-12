@@ -1,0 +1,23 @@
+Scenario:
+
+Your team has decided to change the email server configuration used by multiple microservices in your Kubernetes cluster. You need to update the existing ConfigMap used by these services without causing downtime.
+
+Task:
+
+Update the email-config ConfigMap in the default namespace to change the value of the EMAIL_SERVER key from smtp.oldserver.com to smtp.newserver.com.
+
+Image: busybox:latest
+
+Solution :
+
+In above problem, we can use configMap to create Email_server that has refer oldserver.
+After that try to change this new server. we need to check this thing with all 3 ways to injection in pod.
+1) using env
+2) using envFrom
+3) using volume
+
+First two solution is not working with me.
+
+Environment Variables (env): When you use environment variables to inject values from a ConfigMap (configMapKeyRef) into your pods, the values are set only at the time the pod starts. They are not dynamically updated if the ConfigMap changes. Therefore, the pods won't reflect the updated values until they are restarted.
+
+Volume Mounts (envFrom): When you use volume mounts to include a ConfigMap (configMap) as a volume in your pods, the data in the volume is updated immediately when the ConfigMap changes. This means that any files or configuration data mounted from the ConfigMap will reflect the updated values without the need to restart the pods. (this is apprently fail in my case ) 

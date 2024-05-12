@@ -38,5 +38,5 @@ In summary, the envFrom approach worked because it fetches all the key-value pai
 
 for creating pod.
 
-Apprach 3: try create a pod using volume.
+Apprach 3: create a pod using volume. it is stored on q3.yaml file
 

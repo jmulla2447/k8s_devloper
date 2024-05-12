@@ -1,0 +1,10 @@
+apiVersion: v1
+data:
+  cmq1.txt: |
+    DB_HOST: mysql.example.com
+    DB_PORT: 3306
+    APP_ENV: production
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: cmq1

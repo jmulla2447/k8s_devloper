@@ -1,0 +1,42 @@
+
+You have a web application that requires configuration parameters such as database connection settings and application settings. You want to ensure that these configurations are easily modifiable without modifying the application image itself.
+
+Task:
+
+Create a ConfigMap named web-config with the following key-value pairs:
+
+DB_HOST: mysql.example.com
+DB_PORT: 3306
+APP_ENV: production
+Additional Instructions:
+
+Ensure that the ConfigMap is created in the development namespace
+
+Image: nginx
+
+Solution:
+
+1) should be esaily modifiable ( use decoupled ) use configMap otherwise use env
+2) Need to create a volumes and volumeMount: so if I can change anything is detected by configMapAndSecretsModificationChangeStretegy class and applied on every pod that conusme it
+
+1st aprroach:
+1) create a cmq1.txt file that have all key value pairs.
+2) based on that try to crete a configmap
+3) inject those value in pod thought evn varibale.
+
+Approche is failed because :
+The reason the original solution didn't work is that the env field in a Pod definition expects environment variables to be set explicitly. In your original Pod definition, you were attempting to set environment variables DB_HOST, DB_PORT, and DB_ENV individually using configMapKeyRef, which expects a single key per environment variable. However, since your ConfigMap cmq1 doesn't have individual keys for DB_HOST, DB_PORT, and DB_ENV, but instead has all the data stored under the key cmq1.txt, Kubernetes couldn't find these keys directly in the ConfigMap, resulting in the error.
+
+The solution that worked uses envFrom instead of env. envFrom allows you to inject multiple environment variables from a ConfigMap into the Pod. By using envFrom, you're telling Kubernetes to use all the key-value pairs from the ConfigMap cmq1 as environment variables, which includes DB_HOST, DB_PORT, and DB_ENV.
+
+In summary, the envFrom approach worked because it fetches all the key-value pairs from the ConfigMap and sets them as environment variables in the Pod, while the env approach failed because it was trying to fetch individual keys that weren't present in the ConfigMap.
+
+2nd Aprraoch is working :
+ envFrom:
+    - configMapRef:
+        name: cmq1
+
+for creating pod.
+
+Apprach 3: try create a pod using volume.
+

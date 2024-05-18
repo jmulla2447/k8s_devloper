@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  namespace: rc
+  labels:
+    rn: nwp
+  name: nwp
+spec:
+  containers:
+  - image: nginx
+    name: nwp 
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

@@ -1,0 +1,1 @@
+nwp pod is failed t create becuase we try create this pod on namespace ns and this namespace allocated a quota. So we shedular check that we specify any quota for this pod or not if not then it reject it to create.

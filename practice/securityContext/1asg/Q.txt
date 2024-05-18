@@ -1,0 +1,21 @@
+
+Scenario:
+
+You are deploying a new microservice that requires running with a non-root user inside the container for security reasons. The Docker image for this microservice has been provided to you and it needs to run with a user named appuser.
+
+Task:
+
+Update the pod specification to ensure that the container runs with the appuser user. Ensure that the container runs the provided Docker image myapp:latest.
+
+Additional Instructions:
+
+Name the pod myapp-pod.
+The namespace for the pod should be default.
+
+
+Solution : 
+
+1) create a myapp pod 
+2) opertaion insdie pod should be non root user.
+3) user name = appuser
+

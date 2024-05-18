@@ -1,0 +1,12 @@
+Scenario:
+
+Your team is deploying a legacy application that requires the capability to read sensitive information from the host filesystem. However, you want to restrict the application's access to only the required files and directories.
+
+Task:
+
+Configure the pod to run the container with a read-only root filesystem and mount the host directory /etc/secrets as read-only inside the container. Use the Docker image legacyapp:v1.0 for the container.
+
+Additional Instructions:
+
+Name the pod legacyapp-pod.
+The namespace for the pod should be legacy.

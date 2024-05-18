@@ -1,0 +1,26 @@
+Scenario:
+
+You are responsible for deploying a web application that requires privileged access to the host network stack for certain operations. The application runs within a Docker container and needs to access networking resources on the host.
+
+Task:
+
+Modify the pod specification to enable the container to run in privileged mode and access the host network stack. Use the Docker image webapp:latest for the container.
+
+Additional Instructions:
+
+Name the pod webapp-pod.
+Ensure that the pod is created in the production namespace.
+
+
+
+
+1)
+
+2) this is about ng.yaml, in this pod defination describe that pod container image should be compatible with defined security context. in this cease,  nginx image is not defined security context that is runAsNonRoot user. It is not compaitible with that. It give error createContinerError.
+It means during container creation time try to create a container that has root user and it is not allowed.
+
+Due to this this issue is fixed via chagne continer that compitible with security context or  change the secuirty context.
+
+3) change continer image and that is bitnami/nginx that is compitible with secrity context.
+
+4)

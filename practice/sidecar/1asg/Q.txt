@@ -1,0 +1,12 @@
+Scenario:
+
+You have a main application that writes logs to a file, and you need to have a sidecar container to send these logs to a centralized logging system.
+
+Task:
+
+Create a pod named log-app with a main application container and a sidecar container. The main application uses the image nginx:latest and writes logs to /var/log/nginx/access.log. The sidecar container should use the image busybox:latest and periodically read from /var/log/nginx/access.log to simulate sending logs.
+
+Additional Instructions:
+
+Ensure the logs directory /var/log/nginx is shared between the main container and the sidecar container.
+Use the default namespace.

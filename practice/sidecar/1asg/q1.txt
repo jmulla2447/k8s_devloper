@@ -1,0 +1,12 @@
+Scenario:
+
+You are deploying a microservice that requires a sidecar container for metrics collection. The main application exposes metrics on port 8080, and the sidecar container should periodically scrape these metrics.
+
+Task:
+
+Create a pod named metrics-app with a main application container and a sidecar container. The main application uses the image httpd:latest and the sidecar container uses the image prom/prometheus:latest.
+
+Additional Instructions:
+
+The sidecar container should access the main application's metrics endpoint on localhost:8080.
+Use the monitoring namespace.

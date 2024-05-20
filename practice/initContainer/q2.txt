@@ -1,0 +1,12 @@
+Scenario:
+
+You are deploying an application that requires a database schema to be set up before the main application starts.
+
+Task:
+
+Create a pod named db-app with an init container and a main application container. The init container should use the image mysql:5.7 to run a script that sets up the database schema. The main application container should use the image phpmyadmin:latest.
+
+Additional Instructions:
+
+Ensure the init container completes the schema setup before the main application container starts.
+Use the database namespace.

@@ -1,0 +1,13 @@
+Scenario:
+
+You have a pod that needs to initialize some configuration files before the main application starts.
+
+Task:
+
+Create a pod named init-app with an init container and a main application container. The init container should use the image busybox:latest to create a file /config/init.txt with the content Initialization complete. The main application container should use the image nginx:latest.
+
+Additional Instructions:
+
+Ensure the init container runs to completion before the main application container starts.
+Use a shared volume to share the file between the init container and the main application container.
+Use the default namespace.

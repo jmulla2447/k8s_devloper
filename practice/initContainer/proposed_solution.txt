@@ -1,0 +1,11 @@
+The error you're seeing indicates that the MySQL server isn't running in the init container when the command is executed. This is because the init container is only running the MySQL client, not the MySQL server.
+
+To solve this, we need to adjust the setup to ensure a MySQL server is available for the init container to connect to. Typically, this is done by having a separate MySQL pod or including the MySQL server within the same pod if you're working in a development or simple deployment scenario.
+
+For simplicity, I'll assume you'd want to use a MySQL server running in another pod within the same namespace. This will involve:
+
+Creating a MySQL deployment and service.
+Creating the pod with the init container to set up the database schema.
+
+
+So when you learn service then you can do this

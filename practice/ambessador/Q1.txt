@@ -1,0 +1,13 @@
+Scenario:
+
+You have a legacy application that needs to communicate with an external service, but it requires an ambassador container to handle the communication.
+
+Task:
+
+Create a pod named ambassador-app with a main application container and an ambassador container. The main application uses the image nginx:latest. The ambassador container uses the image haproxy:latest to proxy requests to an external service at external-service.local.
+
+Additional Instructions:
+
+Ensure the ambassador container proxies requests from the main application to external-service.local.
+Use the default namespace.
+

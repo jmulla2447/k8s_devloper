@@ -2,8 +2,8 @@ apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    run: loop
-  name: loop
+    run: wl
+  name: wl
 spec:
   containers:
   - args:
@@ -11,7 +11,7 @@ spec:
     - -c
     - for i in {1..10}; do 'Welcome $i times'; done
     image: busybox
-    name: loop
+    name: wl
     resources: {}
   dnsPolicy: ClusterFirst
   restartPolicy: Always
